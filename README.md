@@ -1,2 +1,2 @@
-# Authentication_api
+# Authentication API
 Repository for registration-login service
