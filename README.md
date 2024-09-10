@@ -72,74 +72,74 @@ This project is a basic authentication API built using Django and Django REST Fr
 
 1. User Registration
 
-URL: `/api/register/`
+   URL: `/api/register/`
 
-Method: `POST`
+   Method: `POST`
 
-Request Body:
-```
-{
-    "name": "new_user_name",
-    "username": "new_username",
-    "email": "new_user@example.com",
-    "password": "password123",
-    "confirm_password": "password123@12"
-}
-```
-Response Body:
-```
-{
-    "message": "User created successfully."
-    "tokens": {
-        "access": "<access_token>",
-        "refresh": "<refresh_token>"
-    }
-}
-```
+   Request Body:
+   ```
+   {
+       "name": "new_user_name",
+       "username": "new_username",
+       "email": "new_user@example.com",
+       "password": "password123",
+       "confirm_password": "password123@12"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "User created successfully."
+       "tokens": {
+           "access": "<access_token>",
+           "refresh": "<refresh_token>"
+       }
+   }
+   ```
 
 2. User Login
 
-URL: `/api/login/`
+   URL: `/api/login/`
 
-Method: `POST`
+   Method: `POST`
 
-Request Body:
-```
-{
-    "username": "new_username",
-    "password": "password123"
-}
-```
-Response Body:
-```
-{
-    "message": "Login successful."
-    "tokens": {
-        "access": "<access_token>",
-        "refresh": "<refresh_token>"
-    }
-}
-```
+   Request Body:
+   ```
+   {
+       "username": "new_username",
+       "password": "password123"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "Login successful."
+       "tokens": {
+           "access": "<access_token>",
+           "refresh": "<refresh_token>"
+       }
+   }
+   ```
 
 3. Refresh Token
 
-URL: `/api/refresh-token/`
+   URL: `/api/refresh-token/`
 
-Method: `POST`
+   Method: `POST`
 
-Request Body:
-```
-{
-    "refresh_token": "<refresh_token>"
-}
-```
-Response Body:
-```
-{
-    "message": "Token refreshed successfully",
-    "new_access_token": "<new_access_token>"
-}
-```
+   Request Body:
+   ```
+   {
+       "refresh_token": "<refresh_token>"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "Token refreshed successfully",
+       "new_access_token": "<new_access_token>"
+   }
+   ```
 
 
 
