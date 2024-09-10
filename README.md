@@ -40,6 +40,7 @@ This project is a basic authentication API built using Django and Django REST Fr
    ```
 
 4. Configure Database Settings
+
    Update the `DATABASE` setting in your `settings.py` file with your MySQL database credentials:
    ```
    DATABASE = {
@@ -70,8 +71,11 @@ This project is a basic authentication API built using Django and Django REST Fr
 # Endpoints
 
 1. User Registration
+
 URL: `/api/register/`
+
 Method: `POST`
+
 Request Body:
 ```
 {
@@ -94,8 +98,11 @@ Response Body:
 ```
 
 2. User Login
+
 URL: `/api/login/`
+
 Method: `POST`
+
 Request Body:
 ```
 {
@@ -115,8 +122,11 @@ Response Body:
 ```
 
 3. Refresh Token
+
 URL: `/api/refresh-token/`
+
 Method: `POST`
+
 Request Body:
 ```
 {
@@ -134,8 +144,8 @@ Response Body:
 
 
 # Token Management
-- `Access Token`: Short-lived token (e.g. 15 minutes). Used to access protected endpoints.
-- `Refresh Token`: Long-lived token (e.g. 1 day). Used to obtain a new access token when the old one expires.
+- `Access Token` : Short-lived token (e.g. 15 minutes). Used to access protected endpoints.
+- `Refresh Token` : Long-lived token (e.g. 1 day). Used to obtain a new access token when the old one expires.
 
 
 ## How to Use Access and Refresh Tokens
@@ -155,9 +165,13 @@ Authorization: Bearer <access_token>
 # Project Structure
 
 api/
-    ├── models.py           # User models
-    ├── tokens.py           # Generate token
-    ├── serializers.py      # User registration and login serializers
-    ├── views.py            # User registration, login, and token refresh views
-    └── auth.py             # Custom authentication logic
 
+    ├── models.py           # User models
+
+    ├── tokens.py           # Generate token
+
+    ├── serializers.py      # User registration and login serializers
+
+    ├── views.py            # User registration, login, and token refresh views
+
+    └── auth.py             # Custom authentication logic
