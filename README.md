@@ -40,6 +40,7 @@ This project is a basic authentication API built using Django and Django REST Fr
    ```
 
 4. Configure Database Settings
+
    Update the `DATABASE` setting in your `settings.py` file with your MySQL database credentials:
    ```
    DATABASE = {
@@ -70,72 +71,81 @@ This project is a basic authentication API built using Django and Django REST Fr
 # Endpoints
 
 1. User Registration
-URL: `/api/register/`
-Method: `POST`
-Request Body:
-```
-{
-    "name": "new_user_name",
-    "username": "new_username",
-    "email": "new_user@example.com",
-    "password": "password123",
-    "confirm_password": "password123@12"
-}
-```
-Response Body:
-```
-{
-    "message": "User created successfully."
-    "tokens": {
-        "access": "<access_token>",
-        "refresh": "<refresh_token>"
-    }
-}
-```
+
+   URL: `/api/register/`
+
+   Method: `POST`
+
+   Request Body:
+   ```
+   {
+       "name": "new_user_name",
+       "username": "new_username",
+       "email": "new_user@example.com",
+       "password": "password123",
+       "confirm_password": "password123@12"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "User created successfully."
+       "tokens": {
+           "access": "<access_token>",
+           "refresh": "<refresh_token>"
+       }
+   }
+   ```
 
 2. User Login
-URL: `/api/login/`
-Method: `POST`
-Request Body:
-```
-{
-    "username": "new_username",
-    "password": "password123"
-}
-```
-Response Body:
-```
-{
-    "message": "Login successful."
-    "tokens": {
-        "access": "<access_token>",
-        "refresh": "<refresh_token>"
-    }
-}
-```
+
+   URL: `/api/login/`
+
+   Method: `POST`
+
+   Request Body:
+   ```
+   {
+       "username": "new_username",
+       "password": "password123"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "Login successful."
+       "tokens": {
+           "access": "<access_token>",
+           "refresh": "<refresh_token>"
+       }
+   }
+   ```
 
 3. Refresh Token
-URL: `/api/refresh-token/`
-Method: `POST`
-Request Body:
-```
-{
-    "refresh_token": "<refresh_token>"
-}
-```
-Response Body:
-```
-{
-    "message": "Token refreshed successfully",
-    "new_access_token": "<new_access_token>"
-}
-```
+
+   URL: `/api/refresh-token/`
+
+   Method: `POST`
+
+   Request Body:
+   ```
+   {
+       "refresh_token": "<refresh_token>"
+   }
+   ```
+   Response Body:
+   ```
+   {
+       "message": "Token refreshed successfully",
+       "new_access_token": "<new_access_token>"
+   }
+   ```
 
 
 
 # Token Management
-- `Access Token`: Short-lived token (e.g. 15 minutes). Used to access protected endpoints.
-- `Refresh Token`: Long-lived token (e.g. 1 day). Used to obtain a new access token when the old one expires.
+- `Access Token` : Short-lived token (e.g. 15 minutes). Used to access protected endpoints.
+- `Refresh Token` : Long-lived token (e.g. 1 day). Used to obtain a new access token when the old one expires.
 
 
 ## How to Use Access and Refresh Tokens
@@ -149,15 +159,3 @@ Include the `Authorization` header with the `Bearer` token:
 ```
 Authorization: Bearer <access_token>
 ```
-
-
-
-# Project Structure
-
-api/
-    ├── models.py           # User models
-    ├── tokens.py           # Generate token
-    ├── serializers.py      # User registration and login serializers
-    ├── views.py            # User registration, login, and token refresh views
-    └── auth.py             # Custom authentication logic
-
