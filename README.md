@@ -159,5 +159,3 @@ Include the `Authorization` header with the `Bearer` token:
 ```
 Authorization: Bearer <access_token>
 ```
-
-    └── auth.py             # Custom authentication logic
