@@ -160,18 +160,4 @@ Include the `Authorization` header with the `Bearer` token:
 Authorization: Bearer <access_token>
 ```
 
-
-
-# Project Structure
-
-api/
-
-    ├── models.py           # User models
-
-    ├── tokens.py           # Generate token
-
-    ├── serializers.py      # User registration and login serializers
-
-    ├── views.py            # User registration, login, and token refresh views
-
     └── auth.py             # Custom authentication logic
