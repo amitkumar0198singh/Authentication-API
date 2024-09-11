@@ -7,6 +7,7 @@ This project is a basic authentication API built using Django and Django REST Fr
 
 - User registration
 - User login
+- User Profile
 - Token-based authentication (JWT)
 - Refresh tokens to issue new access tokens
 
