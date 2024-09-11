@@ -23,46 +23,46 @@ This project is a basic authentication API built using Django and Django REST Fr
 # Installation
 
 1. Clone the Repository:
-   ```
+   ```bash
    git clone https://github.com/amitkumar0198singh/Authentication-API.git
    cd Authentication-API
    ```
 
 2. Create a Virtual Enviornment:
-   ```
+   ```bash
    python -m venv env
    source env/bin/activate  # On Windows: env\Scripts\activate
    ```
 
 3. Install Dependencies:
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 4. Configure Database Settings
 
    Update the `DATABASE` setting in your `settings.py` file with your MySQL database credentials:
-   ```
+   ```json
    DATABASE = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'YOUR_DATABASE_NAME',
-        'USER': 'YOUR_DATABASE_USER',
-        'PASSWORD': 'YOUR_DATABASE_PASSWORD',
-        'HOST': 'YOUR_DATABASE_HOST',
-        'PORT': '3306',     # Default MySQL Port
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "YOUR_DATABASE_NAME",
+        "USER": "YOUR_DATABASE_USER",
+        "PASSWORD": "YOUR_DATABASE_PASSWORD",
+        "HOST": "YOUR_DATABASE_HOST",
+        "PORT": "3306",     # Default MySQL Port
     }
    }
    ```
 
 5. Migrate the Database:
-   ```
+   ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
 6. Run the Development Server:
-   ```
+   ```bash
    python manage.py runserver
    ```
 
@@ -77,7 +77,7 @@ This project is a basic authentication API built using Django and Django REST Fr
    Method: `POST`
 
    Request Body:
-   ```
+   ```json
    {
        "name": "new_user_name",
        "username": "new_username",
@@ -87,9 +87,9 @@ This project is a basic authentication API built using Django and Django REST Fr
    }
    ```
    Response Body:
-   ```
+   ```json
    {
-       "message": "User created successfully."
+       "message": "User created successfully.",
        "tokens": {
            "access": "<access_token>",
            "refresh": "<refresh_token>"
@@ -104,16 +104,16 @@ This project is a basic authentication API built using Django and Django REST Fr
    Method: `POST`
 
    Request Body:
-   ```
+   ```json
    {
        "username": "new_username",
        "password": "password123"
    }
    ```
    Response Body:
-   ```
+   ```json
    {
-       "message": "Login successful."
+       "message": "Login successful.",
        "tokens": {
            "access": "<access_token>",
            "refresh": "<refresh_token>"
@@ -121,20 +121,29 @@ This project is a basic authentication API built using Django and Django REST Fr
    }
    ```
 
-3. Refresh Token
+3. User Profile
+
+   URL: `api/profile/`
+
+   Method: `GET`
+
+   Headers:
+   ```
+
+4. Refresh Token
 
    URL: `/api/refresh-token/`
 
    Method: `POST`
 
    Request Body:
-   ```
+   ```json
    {
        "refresh_token": "<refresh_token>"
    }
    ```
    Response Body:
-   ```
+   ```json
    {
        "message": "Token refreshed successfully",
        "new_access_token": "<new_access_token>"
@@ -154,8 +163,9 @@ This project is a basic authentication API built using Django and Django REST Fr
 2. Use the `access_token` in the `Authorization` header of subsequent API requests to access protected resources .
 3. If the `access_token` expires, you can use the `refresh_token` to obtain a new `access_token`.
 
-## Example: Accessing Protected Endpoints
-Include the `Authorization` header with the `Bearer` token:
-```
+## Example: Accessing User Profie
+Make a `GET` request to `/api/profile/` with the `Authorization` header containing the access token:
+```http
+GET /api/profile/
 Authorization: Bearer <access_token>
 ```
