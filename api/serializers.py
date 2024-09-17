@@ -27,3 +27,9 @@ class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)
     password = serializers.CharField(max_length=255, write_only=True)
 
+
+class UserProfileSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=255)
+    username = serializers.CharField(max_length=255)
+    email = serializers.EmailField(max_length=255)
+
