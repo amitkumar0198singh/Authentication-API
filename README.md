@@ -84,7 +84,7 @@ This project is a basic authentication API built using Django and Django REST Fr
        "username": "new_username",
        "email": "new_user@example.com",
        "password": "password123",
-       "confirm_password": "password123@12"
+       "confirm_password": "password123"
    }
    ```
    Response Body:
